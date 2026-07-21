@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
+  <circle cx="120" cy="120" r="112" stroke="#D4AF37" stroke-width="2" opacity="0.5"/>
+  <text x="120" y="145" font-family="Playfair Display, Georgia, serif" font-size="92" font-weight="700" fill="#D4AF37" text-anchor="middle">S</text>
+  <text x="150" y="165" font-family="Playfair Display, Georgia, serif" font-size="46" font-weight="600" fill="#D4AF37" text-anchor="middle">MB</text>
+  <line x1="60" y1="180" x2="180" y2="180" stroke="#D4AF37" stroke-width="2"/>
+</svg>

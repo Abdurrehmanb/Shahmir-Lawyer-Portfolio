@@ -1,0 +1,50 @@
+/* Keyframe animations & motion utilities */
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+.float-anim { animation: floatY 5s ease-in-out infinite; }
+.float-anim-slow { animation: floatY 8s ease-in-out infinite; }
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin-slow { animation: spinSlow 40s linear infinite; }
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,175,55,0.5); }
+  50% { box-shadow: 0 0 0 14px rgba(212,175,55,0); }
+}
+.pulse-glow { animation: pulseGlow 2.4s ease-out infinite; }
+
+@keyframes cueScroll {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+.scroll-cue .cue-line::after {
+  content: "";
+  position: absolute;
+  left: 0; width: 100%; height: 40%;
+  background: var(--white);
+  animation: cueScroll 1.8s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.aos-init { transition-property: transform, opacity; }
+
+::selection {
+  background: var(--accent);
+  color: var(--primary);
+}
+
+/* Smooth focus ring for accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}

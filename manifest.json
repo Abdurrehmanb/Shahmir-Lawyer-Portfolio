@@ -1,0 +1,16 @@
+{
+  "name": "Shahmir Maqbool Butt | Advocate High Court",
+  "short_name": "S.M. Butt Advocate",
+  "description": "Corporate, civil, criminal, tax and ADR counsel based in Lahore, Pakistan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#081C3D",
+  "theme_color": "#081C3D",
+  "icons": [
+    {
+      "src": "/images/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
