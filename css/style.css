@@ -250,9 +250,6 @@ h1, h2, h3, h4 {
 /* ============================================================
    Navbar
    ============================================================ */
-/* ===========================
-   PREMIUM NAVIGATION
-=========================== */
 
 .navbar {
   position: fixed;
@@ -260,14 +257,16 @@ h1, h2, h3, h4 {
   left: 0;
   right: 0;
   z-index: 999;
-  padding: 22px 0;
+  padding: 16px 0;
   transition: all 0.35s ease;
 }
 
-.navbar .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.navbar .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    width:100%;
 }
 
 .navbar.scrolled {
@@ -284,10 +283,12 @@ h1, h2, h3, h4 {
 =========================== */
 
 .nav-logo{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    text-decoration:none;
+    flex:0 1 auto;
+    min-width:0;
 }
 
 .nav-logo img{
@@ -332,6 +333,7 @@ h1, h2, h3, h4 {
   display:flex;
   align-items:center;
   gap:34px;
+  margin-left:auto;
 }
 
 .nav-links a{
@@ -406,38 +408,26 @@ h1, h2, h3, h4 {
 =========================== */
 
 .nav-toggle{
-
-  display:none;
-
-  cursor:pointer;
-
+    display:none;
+    cursor:pointer;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:44px;
+    height:44px;
+    flex-shrink:0;
+    padding:0;
+    border:none;
+    background:transparent;
 }
-
 .nav-toggle span{
-
-  display:block;
-
-  width:26px;
-
-  height:2px;
-
-  margin:6px 0;
-
-  border-radius:4px;
-
-}
-
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  width: 30px;
-}
-.nav-toggle span {
-  height: 2px;
-  background: var(--primary);
-  border-radius: 2px;
-  transition: 0.3s;
+    display:block;
+    width:24px;
+    height:2px;
+    margin:3px 0;
+    border-radius:999px;
+    background:currentColor;
+    transition:.3s ease;
 }
 .navbar:not(.scrolled) .nav-toggle span { background: var(--white); }
 
@@ -655,7 +645,8 @@ h1, h2, h3, h4 {
   filter: grayscale(0%);
   transform: scale(1.06);
 }
-Temporarily comment out this block:.logo-card::before {
+/* Temporarily comment out this block */
+.logo-card::before {
   content: "";
   position: absolute;
   inset: 0;
