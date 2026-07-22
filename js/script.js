@@ -275,23 +275,39 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------------- Contact form (Netlify Forms) ---------------- */
-  const form = document.getElementById('contact-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
-        .then(() => {
-          form.reset();
-          const success = document.querySelector('.form-success');
-          if (success) success.classList.add('show');
-        })
-        .catch(() => {
-          const success = document.querySelector('.form-success');
-          if (success) { success.textContent = 'Something went wrong — please email directly.'; success.classList.add('show'); }
-        });
-    });
-  }
+ /* ---------------- Contact form (WhatsApp) ---------------- */
+const form = document.getElementById('contact-form');
+
+if (form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value.trim();
+
+    const whatsappNumber = "923436444555";
+
+    const text = `*New Consultation Request*%0A%0A` +
+      `*Full Name:* ${encodeURIComponent(name)}%0A` +
+      `*Email:* ${encodeURIComponent(email)}%0A` +
+      `*Phone:* ${encodeURIComponent(phone || "Not Provided")}%0A` +
+      `*Legal Matter:* ${encodeURIComponent(subject)}%0A%0A` +
+      `*Message:*%0A${encodeURIComponent(message)}`;
+
+    window.open(`https://wa.me/${whatsappNumber}?text=${text}`, "_blank");
+
+    form.reset();
+
+    const success = document.querySelector(".form-success");
+    if (success) {
+      success.classList.add("show");
+      success.textContent = "Redirecting to WhatsApp...";
+    }
+  });
+}
 
   /* ---------------- Current year ---------------- */
   const yearEl = document.getElementById('year');
