@@ -67,16 +67,37 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---------------- Mobile nav ---------------- */
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  navToggle && navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('open');
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (navToggle && navLinks) {
+
+  navToggle.addEventListener('click', () => {
+
+    const isOpen = navToggle.classList.toggle('open');
+
     navLinks.classList.toggle('open');
+
+    document.body.classList.toggle('menu-open', isOpen);
+
+    navToggle.setAttribute('aria-expanded', isOpen);
+
   });
-  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
-    navToggle && navToggle.classList.remove('open');
-    navLinks && navLinks.classList.remove('open');
-  }));
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+
+    link.addEventListener('click', () => {
+
+      navToggle.classList.remove('open');
+      navLinks.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+
+    });
+
+  });
+
+}
 
   /* ---------------- Back to top ---------------- */
   const btt = document.querySelector('.back-to-top');
